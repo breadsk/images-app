@@ -1,0 +1,1 @@
+export { PreviousSearches } from './PreviousSearches'
