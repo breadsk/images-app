@@ -1,14 +1,20 @@
+import type { FC } from "react";
 
 
-export const PreviousSearches = () => {
+interface Props {
+    searches: string[];
+}
+
+export const PreviousSearches:FC<Props> = ({searches}) => {
   return (    
     <div className="previous-searches">
         <h2>Búsquedas previas</h2>
         <ul className="previous-searches-list">
-            <li>Goku</li>
-            <li>Saitama</li>
-            <li>Hanamichi</li>
-            <li>Seiya</li>
+            {
+              searches.map((term)=> (
+                <li key={term}>{term}</li>
+              ))
+            }
         </ul>
     </div>
   )
