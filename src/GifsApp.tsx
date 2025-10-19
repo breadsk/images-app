@@ -7,6 +7,8 @@ import { GifList, PreviousSearches } from './gifs/components'
 import { mockGifs } from './mock-data/gifs.mock'
 // import { robots } from './mock-data/robots.mocks'
 
+import './gifs/others/ejemplos'
+
 import './index.css'
 
 
@@ -14,7 +16,7 @@ import './index.css'
 
 export const GifsApp = () => {
 
-  const[ previousSearches , setPreviousSearches ] = useState(['dragon ball z']);
+  const[ previousTerms , setPreviousTerms ] = useState(['dragon ball z']);
 
   //Comunicación entre componentes
   const handleTermClicked = (term:string) => {
@@ -22,8 +24,18 @@ export const GifsApp = () => {
   } 
 
   // Query a la consulta que la persona escriba
-  const handleSearch = ( query : string ) => {
-    console.log({ query });
+  const handleSearch = ( query : string = '' ) => {
+
+    query = query.trim().toLowerCase();
+
+    if(query.length === 0) return;
+
+    if(previousTerms.includes(query)) return;
+
+    const currentTerms = previousTerms.slice(0,6);
+    currentTerms.unshift(query);
+
+    setPreviousTerms( currentTerms )
   }
 
   return (

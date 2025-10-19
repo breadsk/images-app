@@ -15,7 +15,7 @@ export const SearchBar = ({ placeholder = 'Buscar' , onQuery }:Props) => {
   useEffect(()=> {
     const timeoutId = setTimeout(()=> {
       onQuery(query);
-    },700)
+    },1000)
 
     return () => {
       clearTimeout(timeoutId);
@@ -29,7 +29,7 @@ export const SearchBar = ({ placeholder = 'Buscar' , onQuery }:Props) => {
   }
 
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-    if(event.key === 'Enter'){
+    if(event.key === 'Enter'){        
         handleSearch();
     }
   }
