@@ -16,7 +16,7 @@ import './index.css'
 
 export const GifsApp = () => {
 
-  const[ previousTerms , setPreviousTerms ] = useState(['dragon ball z']);
+  const[ previousTerms , setPreviousTerms ] = useState(['']);
 
   //Comunicación entre componentes
   const handleTermClicked = (term:string) => {
@@ -32,10 +32,12 @@ export const GifsApp = () => {
 
     if(previousTerms.includes(query)) return;
 
-    const currentTerms = previousTerms.slice(0,6);
-    currentTerms.unshift(query);
+    
+    setPreviousTerms( [query , ...previousTerms].splice(0,8) )
 
-    setPreviousTerms( currentTerms )
+    //const currentTerms = previousTerms.slice(0,8);        
+    //currentTerms.unshift(query);
+    //setPreviousTerms( currentTerms )
   }
 
   return (
@@ -50,7 +52,7 @@ export const GifsApp = () => {
           />
         
         <PreviousSearches 
-          searches={['Goku','Hanamichi','Seiya','Oliver','Naruto','Ippo']}
+          searches={ previousTerms }
           onLabelClicked = { handleTermClicked }
           />
                 

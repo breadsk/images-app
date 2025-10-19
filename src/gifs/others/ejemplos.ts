@@ -1,9 +1,10 @@
 
 //                 0         1        2       3       4
 const frutas = ['manzana','banana','naranja','uva','mango'];
+const palabra = "paralelepipedo"
 
 //copia desde el indice 1 hasta el 3 (sin incluir el 3)
-console.log(frutas.slice(0,1));
+console.log(palabra.slice(0,8));
 
 
 //Slice() es un método que crea una copia superficial de una porcion (slice ) de un array
