@@ -6,7 +6,7 @@ import { GifList, PreviousSearches } from './gifs/components'
 
 
 import { robots } from './mock-data/robots.mocks'
-import { robotsProps , ApiResponse } from './gifs/interfaces/image.interface'
+import { robotsProps } from './gifs/interfaces/image.interface'
 import { getImagesByQuery } from './gifs/actions/get-images-by-query.action'
 
 import './index.css'
@@ -28,27 +28,18 @@ export const GifsApp = () => {
     query = query.trim().toLowerCase();
 
     if(query.length === 0) return;
+
     if(previousTerms.includes(query)) return;
 
-    setPreviousTerms([query, ...previousTerms].splice(0, 8));
+    
+    setPreviousTerms( [query , ...previousTerms].splice(0,8) )
 
     console.log(`Nombre de robot es: ${query}`);
+    await getImagesByQuery(query)
     
-    try {
-        const response: ApiResponse = await getImagesByQuery(query);  // ← Tipo ApiResponse
-        
-        // Verificar si la respuesta es exitosa y tiene robot
-        if(response.ok && response.robot) {
-            setImages([response.robot]);
-        } else {
-            setImages([]);
-            console.log('No se encontró robot:', response.msg);
-        }
-    } catch (error) {
-        console.error('Error en la búsqueda:', error);
-        setImages([]);
-    }
-   
+    //const currentTerms = previousTerms.slice(0,8);        
+    //currentTerms.unshift(query);
+    //setPreviousTerms( currentTerms )
   }
 
   return (
