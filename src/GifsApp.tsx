@@ -6,7 +6,7 @@ import { GifList, PreviousSearches } from './gifs/components'
 
 
 import { robots } from './mock-data/robots.mocks'
-import { robotsProps } from './gifs/interfaces/image.interface'
+import type { robotsProps } from './gifs/interfaces/image.interface'
 import { getImagesByQuery } from './gifs/actions/get-images-by-query.action'
 
 import './index.css'
