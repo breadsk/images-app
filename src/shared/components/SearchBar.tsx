@@ -24,8 +24,7 @@ export const SearchBar = ({ placeholder = 'Buscar' , onQuery }:Props) => {
   },[query , onQuery]);
 
   const handleSearch = () => {
-    onQuery(query);
-    //setQuery('');
+    onQuery(query);    
   }
 
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {

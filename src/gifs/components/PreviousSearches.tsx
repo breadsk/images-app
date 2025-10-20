@@ -5,11 +5,7 @@ interface Props {
     searches: string[];
     onLabelClicked?: (term:string) => void;
 }
-/**
- * El error ocurre porque cuando onLabelClicked es opcional 
- * (con el ?), TypeScript no puede garantizar que la función 
- * exista cuando se intenta llamar
- */
+
 export const PreviousSearches:FC<Props> = ({searches , onLabelClicked}) => {
   return (    
     <div className="previous-searches">

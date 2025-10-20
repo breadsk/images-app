@@ -1,22 +1,21 @@
 import type { FC } from 'react'
-import type { Gif } from '../../mock-data/gifs.mock'
+import type { robotsProps } from '../../mock-data/robots.mocks'
 
 interface Props {
-    gifs: Gif[]
+    robots: robotsProps[]
 }
 
-export const GifList:FC<Props> = ({ gifs }) => {
+export const GifList:FC<Props> = ({ robots }) => {
 
   return (
      <div className="gifs-container">
             {
-                gifs.map((gif) => (
-                    <div key={gif.id} className="gif-card">
-                        <img src={gif.url} alt={gif.title} />
-                        <h3>{gif.title}</h3>
-                        <p>
-                            {gif.width} x {gif.height} (1.5mb)
-                        </p>
+                robots.map((robot) => (
+                    <div key={robot.id} className="robot-card">
+                        <img src={robot.avatar} alt={robot.name} />
+                        <h3>{
+                            robot.name
+                            }</h3>
                     </div>
                 ))
             }

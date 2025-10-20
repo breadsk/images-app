@@ -1,14 +1,4 @@
-
-interface robotsProps {
-    series:number;
-    id:number;
-    name:string;
-    weapon:string;
-    avatar:string;
-    sprite1:string;
-    weakness:string;
-    stageImg:string;
-}
+import type { robotsProps } from "../gifs/interfaces/megaman.response";
 
 
 export const robots:robotsProps[] = [
